@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1088 Inventory Status Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mck: {
+              navy: '#051C2C',
+              ink: '#0A1F2D',
+              teal: '#00A9CE',
+              tealDeep: '#0086A8',
+              gray: '#53565A',
+              mist: '#F0F2F5',
+              line: '#D9DDE3',
+              soft: '#E8EEF2'
+            }
+          },
+          fontFamily: {
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            sans: ['"IBM Plex Sans"', 'Segoe UI', 'sans-serif']
+          },
+          letterSpacing: {
+            section: '0.18em'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+  <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="./data/embed.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans', Segoe UI, sans-serif;
+      background: #FFFFFF;
+      color: #051C2C;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mck-rule { height: 3px; width: 48px; background: #00A9CE; }
+    .mck-panel {
+      background: #FFFFFF;
+      border: 1px solid #D9DDE3;
+    }
+    .slicer-btn {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border: 1px solid #D9DDE3;
+      background: #FFFFFF;
+      color: #53565A;
+      padding: 6px 12px;
+      transition: background .12s ease, color .12s ease, border-color .12s ease;
+    }
+    .slicer-btn:hover { border-color: #051C2C; color: #051C2C; }
+    .slicer-btn.active {
+      background: #051C2C;
+      border-color: #051C2C;
+      color: #FFFFFF;
+    }
+    .kpi-num {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum' 1;
+    }
+    .recharts-default-legend { font-family: 'IBM Plex Sans', sans-serif !important; }
+    body.pdf-exporting .no-print { visibility: hidden !important; }
+    body.pdf-exporting .slicer-btn { pointer-events: none; }
+    body.pdf-exporting .pdf-bottom-grid {
+      display: block !important;
+    }
+    body.pdf-exporting #pdf-section-03,
+    body.pdf-exporting #pdf-section-04 {
+      width: 100% !important;
+      max-width: 1000px !important;
+      margin: 0 auto 24px !important;
+    }
+    body.pdf-exporting .pdf-chart-sm {
+      height: 220px !important;
+    }
+    body.pdf-exporting .pdf-slicer-host {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <noscript>JavaScript is required for this dashboard.</noscript>
+  <!-- Precompiled from dashboard.jsx (npm run compile). Works on GitHub Pages without Babel. -->
+  <script src="./dashboard.js"></script>
+</body>
+</html>
